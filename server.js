@@ -11,6 +11,10 @@ app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
+app.get('/javicon.ico', function(req, res) {
+  res.sendfile(__dirname + '/javicon.ico');
+});
+
 app.get('/style.css', function(req, res) {
   res.sendfile(__dirname + '/style.css');
 });

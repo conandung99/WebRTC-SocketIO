@@ -172,7 +172,7 @@ if (navigator.webkitGetUserMedia) {
    */
   rtc.connect = function(server, room) {
     room = room || ""; // by default, join a room called the blank string
-    const wbs = server.replace(/^http/, 'ws');
+    const wbs = server.replace(/^http/, 'wss');
     console.log('Create websocket: ' + wbs);
     rtc._socket = new WebSocket(wbs + ':9449');
 
