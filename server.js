@@ -1,6 +1,7 @@
 var app = require('express')();
 var server = require('http').createServer(app);
-var webRTC = require('webrtc.io').listen(server);
+// var webRTC = require('webrtc.io').listen(server);
+var webRTC = require('websocket')server;
 
 var port = process.env.PORT || 9449;
 server.listen(port);
