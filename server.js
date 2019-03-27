@@ -1,7 +1,7 @@
 var app = require('express')();
 var server = require('http').createServer(app);
-// var webRTC = require('webrtc.io').listen(server);
-var WebSocketServer = require('websocket').server;
+var webRTC = require('webrtc.io').listen(server);
+// var WebSocketServer = require('websocket').server;
 
 var port = process.env.PORT || 9449;
 server.listen(port);
@@ -34,10 +34,10 @@ app.get('/webrtc.io.js', function(req, res) {
 
 // create websocketSever
 
-webRTC = new WebSocketServer({
-    httpServer: server,
-    autoAcceptConnections: false
-});
+// webRTC = new WebSocketServer({
+//     httpServer: server,
+//     autoAcceptConnections: false
+// });
 
 //======
 webRTC.rtc.on('chat_msg', function(data, socket) {
