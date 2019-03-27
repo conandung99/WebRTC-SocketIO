@@ -90,13 +90,15 @@ if (navigator.webkitGetUserMedia) {
      urls: 'stun:stun1.l.google.com:19302'
   },
   {
-    urls: 'stun:numb.viagenie.ca'
+      url: 'turn:turn.anyfirewall.com:443?transport=tcp',
+      credential: 'webrtc',
+      username: 'webrtc'
   },
   {
     url: 'turn:numb.viagenie.ca',
     credential: 'muazkh',
     username: 'webrtc@live.com'
-},
+  },
   {
       url: 'turn:numb.viagenie.ca',
       credential: 'Dung1995',
@@ -111,16 +113,6 @@ if (navigator.webkitGetUserMedia) {
       url: 'turn:192.158.29.39:3478?transport=tcp',
       credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
       username: '28224511:1379330808'
-  },
-  {
-      url: 'turn:turn.bistri.com:80',
-      credential: 'homeo',
-      username: 'homeo'
-   },
-   {
-      url: 'turn:turn.anyfirewall.com:443?transport=tcp',
-      credential: 'webrtc',
-      username: 'webrtc'
   }
   ]
     };
@@ -181,7 +173,8 @@ if (navigator.webkitGetUserMedia) {
   rtc.connect = function(server, room) {
     room = room || ""; // by default, join a room called the blank string
     console.log('Create websocket: ' + server);
-    rtc._socket = new WebSocket(server);
+    const wbs = server.replace(/^http/, 'ws');
+    rtc._socket = new WebSocket(server + ':443');
 
     rtc._socket.onopen = function() {
 
