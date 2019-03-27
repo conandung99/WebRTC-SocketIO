@@ -1,5 +1,10 @@
 var app = require('express')();
-var server = require('http').createServer(app);
+var fs = require('fs');
+var options = {
+        pfx: fs.readFileSync('secure.pfx')
+    };
+var server = require('https').createServer(options, app);
+// var server = require('http').createServer(app);
 var webRTC = require('webrtc.io').listen(server);
 // var WebSocketServer = require('websocket').server;
 
@@ -66,4 +71,4 @@ webRTC.rtc.on('chat_msg', function(data, socket) {
   }
 });
 
-console.log('Please open SSL URL: https://localhost: '+(port)+'/');
+console.log('Please open SSL URL: https://localhost:'+(port)+'/');
