@@ -34,7 +34,7 @@ app.get('/webrtc.io.js', function(req, res) {
 
 // create websocketSever
 
-wsServer = new WebSocketServer({
+webRTC = new WebSocketServer({
     httpServer: server,
     autoAcceptConnections: false
 });
