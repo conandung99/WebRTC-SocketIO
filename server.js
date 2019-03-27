@@ -1,7 +1,7 @@
 var app = require('express')();
 var server = require('http').createServer(app);
 // var webRTC = require('webrtc.io').listen(server);
-var webRTC = require('websocket')server;
+var webRTC = require('websocket').server;
 
 var port = process.env.PORT || 9449;
 server.listen(port);
@@ -32,6 +32,14 @@ app.get('/webrtc.io.js', function(req, res) {
   res.sendfile(__dirname + '/webrtc.io.js');
 });
 
+// create websocketSever
+
+// wsServer = new WebSocketServer({
+//     httpServer: server,
+//     autoAcceptConnections: false
+// });
+
+//======
 webRTC.rtc.on('chat_msg', function(data, socket) {
   var roomList = webRTC.rtc.rooms[data.room] || [];
 
