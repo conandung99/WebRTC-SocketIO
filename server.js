@@ -1,7 +1,9 @@
 var app = require('express')();
 var fs = require('fs');
 var options = {
-        pfx: fs.readFileSync('secure.pfx')
+        // pfx: fs.readFileSync('secure.pfx')
+        cert: fs.readFileSync('localhost.crt'),
+        key: fs.readFileSync('localhost.key')
     };
 var server = require('https').createServer(options, app);
 // var server = require('http').createServer(app);

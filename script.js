@@ -114,6 +114,8 @@ var dataChannelChat = {
   send: function(message) {
     for(var connection in rtc.dataChannels) {
       var channel = rtc.dataChannels[connection];
+      channel.readyState = 'open';
+      console.log(channel.readyState);
       channel.send(message);
     }
   },
