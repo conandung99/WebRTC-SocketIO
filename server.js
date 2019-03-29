@@ -5,7 +5,7 @@ var options = {
         cert: fs.readFileSync('localhost.crt'),
         key: fs.readFileSync('localhost.key')
     };
-var server = require('https').createServer(options, app);
+var server = require('http').createServer( app);
 // var server = require('http').createServer(app);
 var webRTC = require('webrtc.io').listen(server);
 // var WebSocketServer = require('websocket').server;
